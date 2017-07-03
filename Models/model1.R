@@ -43,7 +43,7 @@ Gibbs_model1 <- function(B,W,prior,R,burn_in,thinning,verbose=TRUE){
   sigma2_out <- numeric(R)
   
   # Gibbs sampling
-  for(r in 1:(R+burn_in)){
+  for(r in 1:(R*thinning + burn_in)){
     
     # First step (Intercept)
     mu_tilde     <- sigma2_0 * sum( t(B - phi) - Z,na.rm = TRUE) / (gamma2 + N*sigma2_0)
@@ -66,7 +66,7 @@ Gibbs_model1 <- function(B,W,prior,R,burn_in,thinning,verbose=TRUE){
     Z           <- mu_tilde + c(matrix(rnorm(1 * n_t), 1, n_t) %*% (t(eig$vectors)/sqrt(eig$values)))
     
     # Variances
-    tau2   <- 1/rgamma(1,a_tau2 + N_l/2, b_tau2 + sum(phi^2)/2)
+    tau2   <- 1/rgamma(1,a_tau2 + n_l/2, b_tau2 + sum(phi^2)/2)
     gamma2 <- 1/rgamma(1,a_gamma2 + N/2, b_gamma2 + sum((t(B - beta_0 - phi) - Z)^2,na.rm = TRUE)/2)
     
     mahalanob <- c(t(Z)%*%P_corr%*%Z)
