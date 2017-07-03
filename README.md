@@ -10,3 +10,7 @@ This repository contains the work of the research group composed by:
 * *Andrea Sottosanti*, University of Padua
 
 under the supervision of [Alan Gelfand](http://www2.stat.duke.edu/~alan/), James B. Duke Professor of Statistical Science at Duke University and Professor of Environmental Science and Policy in the Nicholas School. 
+
+## Descriptive analysis
+
+Before the meeting, we started to collect general impression about the data, which are summarized [in this pdf file](https://github.com/tommasorigon/StartUpResearch/raw/master/Descriptive_Analysis.pdf).
