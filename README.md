@@ -14,3 +14,9 @@ under the supervision of [Alan Gelfand](http://www2.stat.duke.edu/~alan/), James
 ## Descriptive analysis
 
 Before the meeting, we started to collect general impression about the data, which are summarized [in this pdf file](https://github.com/tommasorigon/StartUpResearch/blob/master/Descriptive_Analysis.pdf).
+
+## Model 1
+
+## Model 2
+
+
