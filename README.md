@@ -2,7 +2,7 @@
 
 [StartUp Research](http://www.congressi.unisi.it/startupresearch/) is a 2-day meeting where small research groups of young scholars, advised by senior researchers with a well-established experience in different areas of Statistics, will be asked to develop innovative methods and models to analyze a common dataset, with the goal of answering scientific questions arising from an applied problem. 
 
-This repository contains the work of the research group:
+This repository contains the work of the research group composed by:
 
 * *Alessia Caponera*, Sapienza University of Rome
 * *Francesco Denti*, University of Milan-Bicocca
