@@ -77,12 +77,9 @@ save.image("model1.RData")
 ```
 
 
-
-
 ## Diagnostic graphs: autocorrelations and traceplots
 
 We displayed some traceplots for the variance parameters in order to assess the mixing and the convergence of the chain.
-
 
 ```r
 par(mfrow=c(2,3))
@@ -98,7 +95,7 @@ acf(fit_model1$tau2)
 acf(fit_model1$sigma2)
 ```
 
-![](Model1_files/figure-html/acf and traceplots-1.png)<!-- -->
+![](https://github.com/tommasorigon/StartUpResearch/blob/master/Models/Model1_files/figure-html/acf%20and%20traceplots-1.png?raw=true)<!-- -->
 
 Due to the large amount of parameters, the convergence for the spatial random effects and the Gaussian process is monitored via effective sample sizes. Notice that the we computed the ESS of the Gaussian Process **together** with the intercept term.
 
@@ -160,12 +157,11 @@ plot(1:404,colMeans(B),type="l")
 lines(1:404,colMeans(fit_model1$beta + fit_model1$Z),col="red",lty="dashed")
 ```
 
-![](Model1_files/figure-html/GP path-1.png)<!-- -->
+![](https://github.com/tommasorigon/StartUpResearch/blob/master/Models/Model1_files/figure-html/GP%20path-1.png?raw=true)<!-- -->
 
 ## Predictive performance
 
 In the following, in-sample and out-of-sample predictive performance are evaluated below.
-
 
 ```r
 # IN-SAMPLE predictive performance
