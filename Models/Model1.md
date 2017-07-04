@@ -56,7 +56,7 @@ prior <- list(psi=3/100,              # Scale parameter for the GP
 
 In the following, the MCMC chain is computed via Gibbs sampling. The required function [`model1.R`](https://github.com/tommasorigon/StartUpResearch/blob/master/Models/model1.R) are made avaible. We remark that it could be quite time consuming. We computed a total of `25000` replications after a period of `500` as burn in. The chain was thinned every `5` replicates for a total of `R=5000` replicates that were retained for inference.
 
-We estimated the model both in-sample and using a fraction of data (about the 25%), in which we randomly eliminated observations.
+We estimated the model both in-sample and using a fraction of data (about the 75%), in which we randomly eliminated observations.
 
 
 ```r
