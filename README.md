@@ -15,10 +15,12 @@ under the supervision of [Alan Gelfand](http://www2.stat.duke.edu/~alan/), James
 
 Before the meeting, we started to collect general impression about the data, which are summarized [in this pdf file](https://github.com/tommasorigon/StartUpResearch/blob/master/Descriptive_Analysis.pdf).
 
-## Model 1
+## Single subject, single hemisphere
+
+### Model 1
 
 The first model we estimated is an additive model, in which the spatial and the temporal dimension enters in the predictor additively. In the [`Model1.md`](https://github.com/tommasorigon/StartUpResearch/blob/master/Models/Model1.md) file we summarized our findings.
 
-## Model 2
+### Model 2
 
-
+## Multiple subjects, single hemisphere
