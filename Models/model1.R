@@ -8,9 +8,13 @@ Gibbs_model1 <- function(B,W,prior,R,burn_in,thinning,verbose=TRUE){
   
   # Not missing values
   N_l <- apply(B,2,function(x) sum(!is.na(x)))
+  N_t <- apply(B,1,function(x) sum(!is.na(x)))
   N   <- sum(N_l)  # Total number of observations
   
   w_plus  <- rowSums(W)
+  
+  Sigma1_phi  <- diag(w_plus) - W
+  rk_phi      <- nrow(Sigma1_phi) - 1
   
   # Hyperparameters
   sigma2_0 <- prior$sigma2_0
@@ -21,7 +25,6 @@ Gibbs_model1 <- function(B,W,prior,R,burn_in,thinning,verbose=TRUE){
   b_gamma2      <- prior$b_gamma2
   a_tau2        <- prior$a_tau2
   b_tau2        <- prior$b_tau2
-  
   
   R_corr       <- exp(-psi*as.matrix(dist(1:n_t)))
   P_corr       <- solve(R_corr)
@@ -52,25 +55,30 @@ Gibbs_model1 <- function(B,W,prior,R,burn_in,thinning,verbose=TRUE){
     
     # Second step  (CAR model)
     for(l in 1:n_l) {
-      mu_tilde     <- (tau2/w_plus[l]*sum( B[l,] - beta_0 - Z,na.rm = TRUE) + gamma2*sum(W[l,-l]*phi[-l]/w_plus[l]))/ (gamma2+tau2*n_t/w_plus[l])
-      sigma2_tilde <-  (gamma2*tau2/w_plus[l])/(gamma2 + n_t*tau2/w_plus[l])
+      mu_tilde     <- (tau2/w_plus[l]*sum( B[l,] - beta_0 - Z,na.rm = TRUE) + gamma2*sum(W[l,-l]*phi[-l]/w_plus[l]))/ (gamma2+tau2*N_t[l]/w_plus[l])
+      sigma2_tilde <-  (gamma2*tau2/w_plus[l])/(gamma2 + N_t[l]*tau2/w_plus[l])
       phi[l]       <- rnorm(1,mu_tilde,sqrt(sigma2_tilde))
     }
     phi <- phi - mean(phi)
     
     # Third step (Gaussian Process)
-    Bl_sum       <- colSums(B - beta_0 - phi,na.rm=TRUE)
+    Bl_sum      <- colSums(B - beta_0 - phi,na.rm=TRUE)
     eig         <- eigen(diag(N_l/gamma2) + P_corr/sigma2, symmetric = TRUE)
     Sigma_tilde <- crossprod(t(eig$vectors)/sqrt(eig$values))
     mu_tilde    <- c(Sigma_tilde %*% (Bl_sum/gamma2))
     Z           <- mu_tilde + c(matrix(rnorm(1 * n_t), 1, n_t) %*% (t(eig$vectors)/sqrt(eig$values)))
     
     # Variances
-    tau2   <- 1/rgamma(1,a_tau2 + n_l/2, b_tau2 + sum(phi^2)/2)
+    
+    mahalanob <- c(t(phi)%*%Sigma1_phi%*%phi)
+    tau2   <- 1/rgamma(1,a_tau2 + rk_phi/2, b_tau2 + mahalanob/2)
+    
     gamma2 <- 1/rgamma(1,a_gamma2 + N/2, b_gamma2 + sum((t(B - beta_0 - phi) - Z)^2,na.rm = TRUE)/2)
     
     mahalanob <- c(t(Z)%*%P_corr%*%Z)
     sigma2    <- 1/rgamma(1,a_sigma2 + n_t/2,b_sigma2 + mahalanob/2)
+    
+    
     
     # Output
     if (r > burn_in & ((r - burn_in) %% thinning == 0)) {
