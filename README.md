@@ -1,4 +1,4 @@
-# StartUp Research project
+# StartUp Research project - Alan Gelfand group
 
 ![img](http://www.congressi.unisi.it/startupresearch/wp-content/uploads/sites/57/2017/01/cropped-testata-3-1-e1516717770303.png)
 
