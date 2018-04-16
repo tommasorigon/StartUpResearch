@@ -6,9 +6,9 @@
 
 This repository contains the work of the research group composed by:
 
-* [*Alessia Caponera*](#), Sapienza University of Rome
-* [*Francesco Denti*](https://github.com/Fradenti), University of Milan-Bicocca
-* [*Tommaso Rigon*](https://tommasorigon.github.io), Bocconi University
-* [*Andrea Sottosanti*](http://www3.stat.unipd.it/fare-ricerca/sottosanti-andrea), University of Padua
+* [*Alessia Caponera*](#), Department of Statistical Sciences, Sapienza University, Rome, Italy;
+* [*Francesco Denti*](https://github.com/Fradenti), Department of Decision Sciences, Bocconi University, Milan, Italy;
+* [*Tommaso Rigon*](https://tommasorigon.github.io), Bocconi University;
+* [*Andrea Sottosanti*](http://www3.stat.unipd.it/fare-ricerca/sottosanti-andrea), Department of Statistical Sciences, University of Padova, Padua, Italy;
 
-under the supervision of professor [Alan Gelfand](http://www2.stat.duke.edu/~alan/).
+under the supervision of professor [Alan Gelfand](http://www2.stat.duke.edu/~alan/), Department of Statistical Science, Duke University, Durham, U.S.A.
