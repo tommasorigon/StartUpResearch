@@ -7,7 +7,7 @@
 This repository contains the work of the research group composed by:
 
 * [*Alessia Caponera*](#), Sapienza University of Rome
-* [*Francesco Denti*](#), University of Milan-Bicocca
+* [*Francesco Denti*](https://github.com/Fradenti), University of Milan-Bicocca
 * [*Tommaso Rigon*](https://tommasorigon.github.io), Bocconi University
 * [*Andrea Sottosanti*](http://www3.stat.unipd.it/fare-ricerca/sottosanti-andrea), University of Padua
 
