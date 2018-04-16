@@ -9,6 +9,6 @@ This repository contains the work of the research group composed by:
 * [*Alessia Caponera*](#), Sapienza University of Rome
 * [*Francesco Denti*](#), University of Milan-Bicocca
 * [*Tommaso Rigon*](https://tommasorigon.github.io), Bocconi University
-* [*Andrea Sottosanti*](#), University of Padua
+* [*Andrea Sottosanti*](http://www3.stat.unipd.it/fare-ricerca/sottosanti-andrea), University of Padua
 
 under the supervision of professor [Alan Gelfand](http://www2.stat.duke.edu/~alan/).
