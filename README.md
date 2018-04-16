@@ -6,7 +6,7 @@
 
 This repository contains the work of the research group composed by:
 
-* [*Alessia Caponera*](#), Department of Statistical Sciences, Sapienza University, Rome, Italy;
+* [*Alessia Caponera*](http://www.dss.uniroma1.it/it/dipartimento/caponera-alessia), Department of Statistical Sciences, Sapienza University, Rome, Italy;
 * [*Francesco Denti*](https://github.com/Fradenti), Department of Statistics and Quantitative Methods, Bicocca University, Milan, Italy;
 * [*Tommaso Rigon*](https://tommasorigon.github.io), Department of Decision Sciences, Bocconi University, Milan, Italy;
 * [*Andrea Sottosanti*](http://www3.stat.unipd.it/fare-ricerca/sottosanti-andrea), Department of Statistical Sciences, University of Padova, Padua, Italy;
