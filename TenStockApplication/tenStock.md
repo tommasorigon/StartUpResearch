@@ -12,6 +12,23 @@ We use the model to describe the relationships among the time series, providing 
 
 To testify the adaptability of model, we apply our setting to describe the covariance structure among ten time series, referring to simple monthly returns of ten U.S. stocks. As already mentioned,  the dataset `tenstocks` is available in the package `MTS`. First of all, since our model was developed for zero-mean time series, we center the data. Let us have a glimpse of our data with the following plot
 
+```r
+# This load the dataset
+data("mts-examples")
+
+# Creation of the dataset
+dd <- as.character(tenstocks[,1])
+dd <- as.Date(dd,"%Y %m %d")
+tenstocks <- as.data.frame(apply(tenstocks[,-1],2,function(x) scale(x, center = T, scale = F)))
+tenstocks$date <- dd
+
+# Plot
+data.plot <- melt(tenstocks,id.vars = "date")
+colnames(data.plot) <- c("Time","Stock","Value")
+data.plot <- as.tibble(data.plot)
+ggplot(data=data.plot, aes(x=Time,y=Value,group=Stock)) + geom_line(alpha=0.60,aes(col=Stock)) + theme_bw() + xlab("Time") + ylab("Value") +ggtitle("Centered monthly simple returns of ten U.S. stocks")
+```
+
 ![](tenStock_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 One can describe the correlation structure computing the Pearson correlation coefficient among time series. An example is reported in the following raster plot.  Spurious correlation, arised by time dependency, could be present in this first result.  To support our last claim, we report also the estimated autocorrelation functions. 
