@@ -67,15 +67,3 @@ The prediction on the test dataset is performed. We then have a look at the resu
 Let us have a look to the raster plot which describes the estimated covariance matrix. Notiche that the estimation is built averaging each component of the matrix along the simulated chain.
 
 ![](tenStock_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
-
-We want compare the out-of-sample performance of our model  with the prediction ability of a VAR model. To do so, we create new training and testing datasets, splitting the temporal line at `t=80`. The models are trained on the first eighty observations and then they are use to forecast the future `52` prices.
-
-We run a MCMC simulation on the new training set. The values are left identical to the ones of the previous example.
-
-The next plot shows the predicitons for the mean of the various processes. It seems to be a little more stable than the one predicted by the VAR. Moreover, recall that the time series have been standardized. We would expect that the predictions that one performs tend to converge to the mean of the process, as the time index shifts far away from the available data and less information is available. 
-
-This desirable property can be appreciated in our model, as we can see in the plot below. The VAR model, on the other hand, for some of the time series seems to be more affected by the noise (e.g. TXN, MS).
-
-![](tenStock_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
-
-Finally, we can state that our model does a slightly better job in comparison with a model well suited for time series. In fact, the MSE of the VAR model is given by `0.010923` while our model scores an MSE of `0.0107293`. 
