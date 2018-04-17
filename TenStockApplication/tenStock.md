@@ -1,8 +1,9 @@
-# Hierarchical spatio-temporal modeling multivariate time series data
+# Hierarchical spatio-temporal modeling of multivariate time series data
 
 
 ## Introduction
-In this repository we apply the statistical methodology developed in the paper Caponera et al. (2018), _Hierarchical spatio-temporal modeling of resting state fMRI_ to a financial dataset, which is available in the R package `MTS`. 
+
+In this tutorial we apply the statistical methodology developed in the paper Caponera et al. (2018), _Hierarchical spatio-temporal modeling of resting state fMRI_ to a financial dataset, which is available in the R package `MTS`. 
 Motivated by rs-FMRI data, the paper provides a flexible and parsimonious setting for areally-referenced time series. Since in various applications a neighborhood matrix is not available and the idea of which distance to use is not always completely clear, our model does not rely on any distance concept. This assumption makes our model robust with respect to the definition of distance, and hence allows us to apply our methodology to different types of data. One simple example of the  structures that our model is able to handle is given by _multivariate time series_.
 More precisely, we use our model to describe the relationships among the time series, providing as output an estimate of the covariance matrix which could be useful for interpreting the phenomenon under study.
 
