@@ -43,15 +43,13 @@ DAT_test  <- DAT[,new_grid]
 
 After having splitted the data into train and test dataset, we firstly run 15000 iterations and we discard 5000 of them as burn-in period (thinning step of 5 observations) for $K\in\{2,3,4\}$, as suggested by the previous exploratory plots.
 
+|  K|         DIC|    p|     p_DIC|  Acceptance_ratio|        MAP|  RMSE_train|  RMSE_test|
+|--:|-----------:|----:|---------:|-----------------:|----------:|-----------:|----------:|
+|  2|   -3885.103|   20|   21.0772|            0.3822|   1899.061|      0.0610|     0.1246|
+|  3|   -3877.990|   28|   24.2548|            0.0914|   1874.409|      0.0595|     0.1250|
+|  4|   -3873.144|   35|   22.5673|            0.0685|   1840.482|      0.0533|     0.1279|
 
-  K         DIC    p     p_DIC   Acceptance_ratio        MAP   RMSE_train   RMSE_test
----  ----------  ---  --------  -----------------  ---------  -----------  ----------
-  2   -3885.103   20   21.0772             0.3822   1899.061       0.0610      0.1246
-  3   -3877.990   28   24.2548             0.0914   1874.409       0.0595      0.1250
-  4   -3873.144   35   22.5673             0.0685   1840.482       0.0533      0.1279
-
-Computational issues seem to arise as `K` increases.
-The best choice of $K$ according to the DIC criterion is `K=2`. We run again a longer MCMC chain fixing `K=2`. In particular, the number of simulations is set to `1000000`, the thinning is set to `5` and the burn-in period is of `250000` observations. As an example, we report the Monte Carlo markov Chains for the parameters: `a[1,1], a[2,1], a[2,2]` and for `\sigma`.
+Computational issues seem to arise as `K` increases. The best choice of $K$ according to the DIC criterion is `K=2`. We run again a longer MCMC chain fixing `K=2`. In particular, the number of simulations is set to `1000000`, the thinning is set to `5` and the burn-in period is of `250000` observations. As an example, we report the Monte Carlo markov Chains for the parameters: `a[1,1], a[2,1], a[2,2]` and for `sigma`.
 
 
 ![](tenStock_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
