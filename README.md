@@ -12,3 +12,5 @@ This repository contains the work of the research group composed by:
 * [*Andrea Sottosanti*](http://www3.stat.unipd.it/fare-ricerca/sottosanti-andrea), Department of Statistical Sciences, University of Padova, Padua, Italy;
 
 under the supervision of professor [Alan Gelfand](http://www2.stat.duke.edu/~alan/), Department of Statistical Science, Duke University, Durham, U.S.A.
+
+The collection of the R function used in the paper is included in the [`functions.R`](https://github.com/tommasorigon/StartUpResearch/blob/master/functions.R) file.
