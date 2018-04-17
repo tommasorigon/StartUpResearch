@@ -39,7 +39,7 @@ From the correlation matrix, it seems that there are two "clusters" of highly co
 
 ## Pre-processing of the `tenstocks` dataset
 
-We prepare the data for being processed by our model, and we import the functions used for estimation, which are available at the link [`functions.R`](#).
+We prepare the data for being processed by our model, and we import the functions used for estimation, which are available at the link [`functions.R`](https://github.com/tommasorigon/StartUpResearch/blob/master/functions.R).
 
 ```r
 source("functions.R")
