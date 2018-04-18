@@ -38,32 +38,7 @@ One can describe the correlation structure computing the Pearson correlation coe
 From the correlation matrix, it seems that there are two "clusters" of highly correlated time series. Moreover, some kind of autocorrelation seems to be present among the ten stocks series. 
 
 ## Pre-processing of the `tenstocks` dataset
-
 We prepare the data for being processed by our model, and we import the functions used for estimation, which are available at the link [`functions.R`](https://github.com/tommasorigon/StartUpResearch/blob/master/functions.R).
-```r
-DAT     <- DAT[,-11]
-# Pearson correlation
-Pear_10 <- cor((DAT))
-ggcorrplot(Pear_10,ggtheme=ggplot2::theme_dark,colors=c("red","white","blue"),legend.title="Correlation") +ggtitle("Pearson correlation index among monthly simple returns of ten U.S. stocks")
-```
-
-![](tenStock_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
-
-```r
-# Autocorrelation
-ACF_10           <- matrix(0,21,10)
-for(l in 1:10) {ACF_10[,l] <- acf(DAT[,l],plot=FALSE,lag.max=20)$acf[,,1]}
-ACF_10           <- as.data.frame(ACF_10)
-colnames(ACF_10) <- colnames((DAT))
-ACF              <- rbind(melt(ACF_10))
-ACF$ind          <- rep(0:20,10)
-
-ggplot(data=ACF,aes(x=ind,y=value,group=variable)) + geom_line(aes(col=variable), alpha=.8,size=0.5) + geom_point(aes(col=variable),size=0.4)+ geom_hline(yintercept=0) + ylab("Autocorrelation") + xlab("Lag") + theme_bw()  + scale_x_continuous(breaks = round(seq(0, 19, by = 1))) + geom_hline(yintercept =qnorm(c(0.025, 0.975))/sqrt(nrow(DAT)),col=2)+ggtitle("Autocorrelation Plot, Maximum lag set to 20")
-```
-
-![](tenStock_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
-
-From the correlation matrix, two ``clusters'' of highly correlated time series appear. Moreover, even if it is not so remarkable, some kind of autocorrelation seems to be present among the ten stocks. We then prepare the data for being processed by our model and we import our functions. 
 
 ```r
 source("functions.R")
@@ -83,7 +58,6 @@ new_grid        <- setdiff(1:n_t,time_grid)          # Grid for prediction
 tenstocks_train <- tenstocks[,time_grid]
 tenstocks_test  <- tenstocks[,new_grid]
 ```
-
 ## Model estimation
 
 After having splitted the data into train and test dataset, we first run `15000` iterations and we discard `5000` of them as burn-in period, thinning the chain every `5` iterations, for `K = 2,3,4`. The code for the estimation is omitted.
