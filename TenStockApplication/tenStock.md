@@ -1,11 +1,3 @@
----
-title: " Hierarchical spatio-temporal modeling of resting state fMRI: an Application to Multivatiate Time Series Data"
-author: "Caponera, Denti, Gelfand, Rigon, Sottosanti"
-date: "Last update: April 2018"
-output: 
- html_document:
-    keep_md: true
----
 # Hierarchical spatio-temporal modeling of multivariate time series data
 
 
@@ -23,16 +15,19 @@ To testify the adaptability of model, we apply our setting to describe the covar
 ```r
 # This load the dataset
 data("mts-examples")
-dd                  <- as.character(tenstocks[,1])
-dd                  <- as.Date(dd,"%Y %m %d")
-DAT                 <- as.data.frame(apply(tenstocks[,-1],2,function(x) scale(x, center = T, scale = F)))
-DAT$date            <- dd
-data.plot           <- melt(DAT,id.vars = "date")
+
+# Creation of the dataset
+dd             <- as.character(tenstocks[,1])
+dd             <- as.Date(dd,"%Y %m %d")
+tenstocks      <- as.data.frame(apply(tenstocks[,-1],2,function(x) scale(x, center = T, scale = F)))
+tenstocks$date <- dd
+
+# Plot
+data.plot           <- melt(tenstocks,id.vars = "date")
 colnames(data.plot) <- c("Time","Stock","Value")
 data.plot           <- as.tibble(data.plot)
 ggplot(data=data.plot, aes(x=Time,y=Value,group=Stock)) + geom_line(alpha=0.60,aes(col=Stock)) + theme_bw() + xlab("Time") + ylab("Value") +ggtitle("Centered monthly simple returns of ten U.S. stocks")
 ```
-
 
 ![](tenStock_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
@@ -45,10 +40,8 @@ From the correlation matrix, it seems that there are two "clusters" of highly co
 ## Pre-processing of the `tenstocks` dataset
 
 We prepare the data for being processed by our model, and we import the functions used for estimation, which are available at the link [`functions.R`](https://github.com/tommasorigon/StartUpResearch/blob/master/functions.R).
-
 ```r
-DAT <- DAT[,-11]
-
+DAT     <- DAT[,-11]
 # Pearson correlation
 Pear_10 <- cor((DAT))
 ggcorrplot(Pear_10,ggtheme=ggplot2::theme_dark,colors=c("red","white","blue"),legend.title="Correlation") +ggtitle("Pearson correlation index among monthly simple returns of ten U.S. stocks")
