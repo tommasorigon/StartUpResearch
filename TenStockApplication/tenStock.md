@@ -66,22 +66,22 @@ ggplot(data=ACF,aes(x=ind,y=value,group=variable)) + geom_line(aes(col=variable)
 From the correlation matrix, two ``clusters'' of highly correlated time series appear. Moreover, even if it is not so remarkable, some kind of autocorrelation seems to be present among the ten stocks. We then prepare the data for being processed by our model and we import our functions. 
 
 ```r
-source("/home/fra/Downloads/StartUpResearch-master/TenStockApplication/functions.R")
-DAT   <- t(DAT)
-n_t   <- ncol(DAT)             # Number of time observations
-n_l   <- nrow(DAT)             # Number of generated processes
-colnames(DAT) <- 1:n_t;        # Set the names of the colums
-time  <- seq(0,ncol(DAT),length=ncol(DAT))
+source("functions.R")
+tenstocks   <- t(tenstocks)
+n_t         <- ncol(tenstocks)             # Number of time observations
+n_l         <- nrow(tenstocks)             # Number of generated processes
+colnames(tenstocks) <- 1:n_t;              # Set the names of the colums
+time        <- seq(0,ncol(tenstocks),length=ncol(tenstocks))
 ```
 
 In order to perform in-sample prediction we create two mutually exclusive grids of points. The `tenstocks` dataset is then splitted into two parts: training and test.
 
 ```r
 set.seed(123)
-time_grid <- sort(sample(n_t,round(0.75*n_t))) # The 75% of the time columns are used.
-new_grid  <- setdiff(1:n_t,time_grid)          # Grid for prediction
-DAT_train <- DAT[,time_grid]
-DAT_test  <- DAT[,new_grid]
+time_grid       <- sort(sample(n_t,round(0.75*n_t))) # The 75% of the time columns are used.
+new_grid        <- setdiff(1:n_t,time_grid)          # Grid for prediction
+tenstocks_train <- tenstocks[,time_grid]
+tenstocks_test  <- tenstocks[,new_grid]
 ```
 
 ## Model estimation
