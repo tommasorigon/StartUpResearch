@@ -3,6 +3,7 @@
 
 ## Introduction
 
+
 In this tutorial we apply the statistical methodology developed in the paper Caponera et al. (2018), _Hierarchical spatio-temporal modeling of resting state fMRI_ to the `tenstocks` financial dataset, which is available in the R package `MTS`. 
 Motivated by rs-FMRI data, the paper describes a flexible and parsimonious model for areally-referenced time series. In various applications a neighborhood matrix is not available and which distance to use is not always a simple choice. To avoid this difficulty, their model does not rely on any concept of distance. This assumption makes the model robust with respect to the definition of distance, and hence allows to apply our methodology to different types of data. One simple example of the  structures that our model is able to handle is given by _multivariate time series_.
 
